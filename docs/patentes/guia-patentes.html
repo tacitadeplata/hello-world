@@ -1,0 +1,422 @@
+<title>Ruta de patente ES · UE · US · NZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F5F6F3; --surface:#FFFFFF; --ink:#18202A; --muted:#566170; --line:#D9DDD6; --soft:#ECEEE8;
+  --accent:#1F4E8C; --accent-soft:#E3EAF4;
+  --es:#A8432F; --pct:#1F4E8C; --ep:#2A7566; --us:#6A4E9C; --nz:#56752B; --aid:#A87116; --crit:#B3261E;
+  --good:#2F6B3A;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11151A; --surface:#181E25; --ink:#E4E8EC; --muted:#9AA5B1; --line:#2C343D; --soft:#1F262E;
+    --accent:#8DB0E3; --accent-soft:#1E2B3D;
+    --es:#E08A74; --pct:#8DB0E3; --ep:#6FC1AE; --us:#B59CE0; --nz:#A6C66E; --aid:#E2B356; --crit:#F08A80; --good:#7CC48A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11151A; --surface:#181E25; --ink:#E4E8EC; --muted:#9AA5B1; --line:#2C343D; --soft:#1F262E;
+  --accent:#8DB0E3; --accent-soft:#1E2B3D;
+  --es:#E08A74; --pct:#8DB0E3; --ep:#6FC1AE; --us:#B59CE0; --nz:#A6C66E; --aid:#E2B356; --crit:#F08A80; --good:#7CC48A;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:32px 64px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700}
+h2{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{max-width:68ch;color:var(--muted);font-size:1.05rem}
+header.top{display:grid;gap:12px;padding-bottom:22px;border-bottom:2px solid var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+section{display:grid;gap:14px;padding-block:34px;border-bottom:1px solid var(--line)}
+.sub{color:var(--muted);max-width:70ch}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.verdict div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:4px;align-content:start}
+.verdict b{font-family:var(--serif);font-size:1.05rem}
+.verdict .main{border-color:var(--accent);background:var(--accent-soft)}
+.note{border-left:3px solid var(--aid);padding:10px 14px;background:var(--soft);border-radius:0 6px 6px 0;max-width:80ch}
+.note.crit{border-left-color:var(--crit)}
+ul.clean{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:80ch}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--surface)}
+th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);background:var(--bg)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody th{font-weight:600}
+tr.total td,tr.total th{border-top:2px solid var(--ink);font-weight:700}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;padding:1px 7px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+/* Gantt */
+.controls{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:end}
+.field{display:grid;gap:4px}
+.field label{font-size:.8rem;font-weight:600;color:var(--muted)}
+input[type=date],select{font:inherit;font-size:.95rem;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
+.gantt{min-width:760px;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.g-row{display:grid;grid-template-columns:250px 1fr;border-bottom:1px solid var(--line);min-height:38px}
+.g-row:last-child{border-bottom:0}
+.g-row.group{background:var(--soft);min-height:28px}
+.g-row.group .g-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+.g-label{padding:8px 12px;font-size:.86rem;line-height:1.3;border-right:1px solid var(--line);display:flex;align-items:center}
+.g-track{position:relative}
+.g-axis .g-track{height:40px}
+.tick{position:absolute;top:0;bottom:0;border-left:1px dashed var(--line)}
+.tick span{position:absolute;top:4px;left:4px;font-family:var(--mono);font-size:.68rem;color:var(--muted);white-space:nowrap;line-height:1.25}
+.gridline{position:absolute;top:0;bottom:0;border-left:1px dashed var(--line);opacity:.8}
+.bar{position:absolute;top:9px;height:20px;border-radius:4px;opacity:.9}
+.bar.aid{background:repeating-linear-gradient(45deg,var(--aid) 0 6px,transparent 6px 10px);border:1px solid var(--aid)}
+.dia{position:absolute;top:12px;width:14px;height:14px;transform:translateX(-7px) rotate(45deg);border-radius:2px}
+.dia.crit{outline:2px solid var(--crit);outline-offset:2px}
+.g-when{position:absolute;top:10px;font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.85rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+/* Costes */
+.calc{display:grid;grid-template-columns:minmax(250px,320px) 1fr;gap:18px;align-items:start}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px}
+.checks{display:grid;gap:8px}
+.checks label{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;line-height:1.3}
+.checks input{margin-top:3px;accent-color:var(--accent)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.sum div{border-top:2px solid var(--ink);padding-top:6px;display:grid;gap:2px}
+.sum .k{font-size:.78rem;color:var(--muted)}
+.sum .v{font-family:var(--serif);font-size:1.35rem;font-weight:700;font-variant-numeric:tabular-nums}
+.sum .net .v{color:var(--good)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.card .who{font-size:.85rem;color:var(--muted)}
+.url{font-family:var(--mono);font-size:.78rem;word-break:break-all}
+.small{font-size:.85rem;color:var(--muted)}
+footer{padding-top:26px;display:grid;gap:10px;font-size:.85rem;color:var(--muted)}
+footer ol{margin:0;padding-left:1.2em;display:grid;gap:3px}
+footer li{word-break:break-word}
+@media print{
+  :root{--bg:#fff;--surface:#fff}
+  body{font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  section{break-inside:auto;padding-block:18px}
+  table,.gantt,.card,.panel,.verdict div{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .scroll{overflow:visible}
+  .gantt{min-width:0}
+  .g-row{grid-template-columns:200px 1fr}
+  .noprint{display:none!important}
+  .url{font-size:7.5pt}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <span class="eyebrow">Guía comparativa · septiembre 2026</span>
+  <h1>Ruta de patente: España, Unión Europea, EE.&nbsp;UU. y Nueva Zelanda</h1>
+  <p class="lede">Invención terminada en España, con el objetivo de proteger en la UE y en otros mercados. La guía incluye el calendario de plazos, los costes estimados, las ayudas disponibles y sus enlaces de solicitud.</p>
+  <div class="meta"><span>Tasas oficiales vigentes a 2026, aproximadas</span><span>1 US$ ≈ 0,86 € · 1 NZ$ ≈ 0,51 €</span><span>No es asesoramiento jurídico</span></div>
+</header>
+
+<section id="resumen">
+  <h2>Recomendación</h2>
+  <div class="verdict">
+    <div class="main"><span class="eyebrow">Origen</span><b>Primera solicitud en la OEPM</b><span>La invención se terminó en España, así que presentar primero aquí es lo más seguro legalmente. También es lo más barato y da acceso a las ayudas.</span></div>
+    <div><span class="eyebrow">Mes 12</span><b>PCT a través de la OEPM</b><span>Una sola solicitud mantiene abiertos la UE, EE. UU., Nueva Zelanda y más de 150 países hasta el mes 30/31.</span></div>
+    <div><span class="eyebrow">UE</span><b>Patente europea (EPO)</b><span>Patente unitaria para 18 países. Validación aparte en España y en los 8 países de la UE no adheridos.</span></div>
+    <div><span class="eyebrow">Nueva Zelanda</span><b>Como destino, no como origen</b><span>No exige residencia, pero sí una dirección para notificaciones en NZ o Australia. Se entra en el mes 31 desde la PCT.</span></div>
+  </div>
+  <p class="note crit"><b>Primera presentación obligatoria en España.</b> Si reside en España y la invención se realizó aquí, debe presentarla primero en la OEPM, directamente o como solicitud europea o PCT a través de ella. No puede presentarla directamente en el extranjero hasta 2 meses después, salvo autorización de la OEPM. Si alguna parte se concibió en EE. UU. durante el tránsito, además necesita una <i>foreign filing licence</i> de la USPTO antes de presentar fuera de EE. UU.</p>
+  <p class="note"><b>No divulgue la invención antes de presentarla.</b> EE. UU. y Nueva Zelanda conceden 12 meses de gracia a las divulgaciones del propio inventor, pero Europa y España no. Una publicación previa destruiría la novedad en la UE.</p>
+</section>
+
+<section id="calendario">
+  <h2>Calendario de 0 a 60 meses</h2>
+  <p class="sub">Los plazos se cuentan desde la primera solicitud (fecha de prioridad). Cambie la fecha para recalcular todo el calendario. Las fechas mostradas por defecto son un ejemplo.</p>
+  <div class="controls noprint">
+    <div class="field"><label for="start">Fecha de la primera solicitud en la OEPM</label><input type="date" id="start" value="2026-11-02"></div>
+  </div>
+  <div class="legend" aria-hidden="true">
+    <span><i style="background:var(--es)"></i>España (OEPM)</span>
+    <span><i style="background:var(--pct)"></i>PCT (OMPI)</span>
+    <span><i style="background:var(--ep)"></i>UE (EPO)</span>
+    <span><i style="background:var(--us)"></i>EE. UU. (USPTO)</span>
+    <span><i style="background:var(--nz)"></i>Nueva Zelanda (IPONZ)</span>
+    <span><i style="background:var(--aid)"></i>Ayudas</span>
+    <span><i style="background:var(--ink);transform:rotate(45deg);outline:2px solid var(--crit);outline-offset:1px;width:9px;height:9px"></i>Plazo crítico</span>
+  </div>
+  <div class="scroll"><div class="gantt" id="gantt" role="table" aria-label="Calendario de la ruta de patente"></div></div>
+  <div class="scroll"><table id="deadlines">
+    <thead><tr><th>Mes</th><th>Fecha</th><th>Hito</th><th>Qué hacer</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<section id="comparativa">
+  <h2>Comparativa de las cuatro oficinas</h2>
+  <div class="scroll"><table>
+    <thead><tr><th></th><th>España (OEPM)</th><th>UE (EPO)</th><th>EE. UU. (USPTO)</th><th>Nueva Zelanda (IPONZ)</th></tr></thead>
+    <tbody>
+      <tr><th>Territorio</th><td>España</td><td>Patente unitaria en 18 países de la UE. Validación aparte en ES, PL, HR, IE, CZ, SK, HU, GR y CY. Cubre también GB, CH, NO, TR…</td><td>EE. UU.</td><td>Nueva Zelanda</td></tr>
+      <tr><th>Tasas hasta concesión</th><td class="num">≈ 1.020 €<br><span class="small">≈ 510 € emprendedor</span></td><td class="num">≈ 5.000–5.500 €<br><span class="small">−30 % microentidad</span></td><td class="num">2.000 $ grande<br><span class="small">800 $ pequeña · 400 $ micro</span></td><td class="num">≈ 1.000 NZ$<br><span class="small">+ IVA NZ si reside allí</span></td></tr>
+      <tr><th>Honorarios típicos</th><td>2–5 k€</td><td>5–10 k€</td><td>8–15 k$</td><td>4–8 k NZ$</td></tr>
+      <tr><th>Duración típica</th><td>2–3 años</td><td>3–5 años</td><td>2–3 años</td><td>1–2 años</td></tr>
+      <tr><th>Idioma</th><td>Español (u otro con traducción)</td><td>Inglés, francés o alemán. Se admite el español con traducción</td><td>Inglés</td><td>Inglés</td></tr>
+      <tr><th>Periodo de gracia</th><td>No (solo abuso o exposiciones oficiales, 6 meses)</td><td>No</td><td>12 meses</td><td>12 meses (divulgación propia)</td></tr>
+      <tr><th>Oposición</th><td>Tras la concesión</td><td>9 meses tras la concesión</td><td>IPR/PGR tras la concesión</td><td>3 meses tras la aceptación, antes de conceder</td></tr>
+      <tr><th>¿Hay que ser residente?</th><td>No. Los no residentes en el EEE necesitan agente</td><td>No. Los no residentes en el EPC necesitan agente europeo</td><td>No. Se recomienda abogado registrado</td><td><b>No.</b> Basta una dirección para notificaciones en NZ o Australia</td></tr>
+      <tr><th>Presentación en línea</th><td>Sede electrónica OEPM</td><td>MyEPO / Online Filing</td><td>Patent Center</td><td>Portal IPONZ</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Patente unitaria (18 países): AT, BE, BG, DE, DK, EE, FI, FR, IT, LT, LU, LV, MT, NL, PT, RO, SE, SI. España y Polonia no participan.</p>
+</section>
+
+<section id="costes">
+  <h2>Costes estimados</h2>
+  <p class="sub">Marque las rutas y el tipo de solicitante. Las cifras son horquillas en euros, acumuladas hasta la concesión. No incluyen anualidades posteriores. La ayuda de la OEPM cubre solo tasas oficiales, nunca honorarios.</p>
+  <div class="calc">
+    <div class="panel">
+      <div class="field"><label for="entity">Tipo de solicitante</label>
+        <select id="entity">
+          <option value="pf">Persona física (inventor)</option>
+          <option value="micro">Microempresa (&lt;10 empleados)</option>
+          <option value="pyme">Pyme (10–249 empleados)</option>
+          <option value="big">Gran empresa</option>
+        </select></div>
+      <div class="checks" id="routes">
+        <label><input type="checkbox" id="r-es" checked> España: solicitud en la OEPM</label>
+        <label><input type="checkbox" id="r-pct" checked> PCT: fase internacional vía OEPM</label>
+        <label><input type="checkbox" id="r-ep" checked> Patente europea hasta concesión</label>
+        <label><input type="checkbox" id="r-up" checked> Efecto unitario (18 países) y validación en España</label>
+        <label><input type="checkbox" id="r-rest"> Resto de la UE: 8 países no unitarios</label>
+        <label><input type="checkbox" id="r-us" checked> EE. UU.: fase nacional</label>
+        <label><input type="checkbox" id="r-nz"> Nueva Zelanda: fase nacional</label>
+        <label><input type="checkbox" id="r-aid" checked> Aplicar la subvención de la OEPM (residencia fiscal en España)</label>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="sum">
+        <div><span class="k">Tasas oficiales</span><span class="v" id="s-fees">–</span></div>
+        <div><span class="k">Honorarios y traducciones</span><span class="v" id="s-pro">–</span></div>
+        <div><span class="k">Ayuda OEPM estimada</span><span class="v" id="s-aid">–</span></div>
+        <div class="net"><span class="k">Coste neto estimado</span><span class="v" id="s-net">–</span></div>
+      </div>
+      <div class="scroll"><table id="cost-table">
+        <thead><tr><th>Partida</th><th class="num">Tasas</th><th class="num">Honorarios</th><th class="num">Ayuda</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="small" id="calc-notes"></p>
+    </div>
+  </div>
+  <h3>Escenarios de referencia (persona física o microempresa, con ayuda OEPM)</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Escenario</th><th class="num">Tasas</th><th class="num">Honorarios</th><th class="num">Neto tras ayuda</th></tr></thead>
+    <tbody id="scen"></tbody>
+  </table></div>
+</section>
+
+<section id="ayudas">
+  <h2>Ayudas en España: quién puede pedirlas y dónde</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Ayuda</th><th>Quién puede pedirla</th><th>Qué cubre</th><th>Cuándo</th></tr></thead>
+    <tbody>
+      <tr><th>Subvención OEPM, programa exterior</th><td>Personas físicas, pymes, grandes empresas y entidades privadas sin ánimo de lucro, <b>con residencia y domicilio fiscal en España</b></td><td>Tasas de la PCT, de la EPO (solicitud, búsqueda, examen, concesión, anualidades) y de oficinas extranjeras. Hasta el 90 % para personas físicas y pymes, 80 % para el resto. Tope de 65.000 € y 60.000 € respectivamente</td><td>Convocatoria anual en primavera (2026: del 25 de marzo al 8 de mayo). Cubre tasas ya pagadas</td></tr>
+      <tr><th>Subvención OEPM, programa nacional</th><td>Solo <b>personas físicas y pymes</b> con residencia fiscal en España</td><td>Tasa de solicitud, IET y examen de la patente o modelo de utilidad españoles</td><td>La misma convocatoria anual</td></tr>
+      <tr><th>Reducción del 50 % en tasas OEPM</th><td>Personas físicas y pymes con condición de emprendedor, acreditada, por ejemplo, con el alta en el censo</td><td>Solicitud, IET, examen y anualidades 3.ª a 5.ª. Se suma un 15 % adicional por presentar en línea</td><td>Se pide al presentar la solicitud</td></tr>
+      <tr><th>Bono de patentes del Fondo para pymes de la EUIPO</th><td>Solo <b>pymes</b> establecidas en la UE, incluidos autónomos. No personas físicas sin actividad empresarial</td><td>75 % de las tasas de la patente nacional, hasta 1.000 €. Patente europea, tasas y parte de los costes legales, hasta 2.500 €</td><td>Hasta el 4 de diciembre de 2026 o hasta agotar fondos. <b>Hay que pedirlo antes de pagar</b></td></tr>
+      <tr><th>Reducción de microentidad en la EPO</th><td>Personas físicas, microempresas, universidades y entidades sin ánimo de lucro con 4 o menos solicitudes europeas en los últimos 5 años</td><td>−30 % en las tasas de la EPO</td><td>Se declara al presentar</td></tr>
+      <tr><th>Préstamos ENISA / CDTI y ayudas autonómicas</th><td>Empresas, sobre todo pymes y startups</td><td>Financiación de proyectos de I+D+i que incluyan la protección de la propiedad industrial</td><td>Según convocatoria</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>No se puede financiar dos veces la misma tasa.</b> Las ayudas de la OEPM y de la EUIPO no pueden cubrir el mismo coste. Declare siempre en la solicitud de la OEPM cualquier otra ayuda recibida.</p>
+
+  <h3>Enlaces para solicitar</h3>
+  <div class="links">
+    <div class="card"><b>Subvenciones OEPM: información y bases</b><span class="who">Convocatoria anual, programas exterior y nacional</span><a class="url" href="https://www.oepm.es/es/sobre-OEPM/servicios-al-ciudadano/ayudas-y-subvenciones/ayudas-de-la-oepm-para-el-fomento-de-solicitudes-de-patentes-y-modelos-de-utilidad/">oepm.es/…/ayudas-de-la-oepm-para-el-fomento-de-solicitudes-de-patentes-y-modelos-de-utilidad/</a></div>
+    <div class="card"><b>Convocatoria OEPM 2026 (PDF)</b><span class="who">Texto completo de las bases de 2026</span><a class="url" href="https://www.oepm.es/export/sites/portal/comun/documentos_relacionados/Ayudas/2026/Convocatoria-subvenciones-OEPM-2026.pdf">oepm.es/…/Ayudas/2026/Convocatoria-subvenciones-OEPM-2026.pdf</a></div>
+    <div class="card"><b>Presentar la solicitud de subvención</b><span class="who">Sede electrónica de la OEPM, apartado «Otros trámites», menú «Subvenciones para el fomento de patentes y modelos de utilidad». Requiere certificado digital. Consultas: Ayuda.Subvenciones@oepm.es</span><a class="url" href="https://sede.oepm.gob.es/">sede.oepm.gob.es</a><a class="url" href="https://tramites2.oepm.es/solicitudAyudas/">tramites2.oepm.es/solicitudAyudas/</a></div>
+    <div class="card"><b>Reducción del 50 % para emprendedores</b><span class="who">Requisitos y acreditación</span><a class="url" href="https://www.oepm.es/es/sobre-OEPM/servicios-al-ciudadano/ayudas-y-subvenciones/ayudas-estatales/">oepm.es/…/ayudas-y-subvenciones/ayudas-estatales/</a></div>
+    <div class="card"><b>Fondo para pymes de la EUIPO 2026</b><span class="who">Bonos de patentes nacional y europea</span><a class="url" href="https://www.euipo.europa.eu/en/sme-corner/sme-fund/2026">euipo.europa.eu/en/sme-corner/sme-fund/2026</a><a class="url" href="https://www.euipo.europa.eu/en/sme-corner/sme-fund/2026/vouchers/european-patents">euipo.europa.eu/…/2026/vouchers/european-patents</a></div>
+    <div class="card"><b>Buscador oficial de subvenciones (BDNS)</b><span class="who">Todas las convocatorias estatales, autonómicas y locales</span><a class="url" href="https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias">infosubvenciones.es/bdnstrans/GE/es/convocatorias</a></div>
+    <div class="card"><b>ENISA y CDTI</b><span class="who">Préstamos participativos (ENISA) y financiación de I+D (CDTI)</span><a class="url" href="https://www.enisa.es/">enisa.es</a><a class="url" href="https://www.cdti.es/">cdti.es</a></div>
+    <div class="card"><b>Agencias autonómicas (ejemplos)</b><span class="who">Cataluña, Comunitat Valenciana, País Vasco. Consulte la de su comunidad</span><a class="url" href="https://www.accio.gencat.cat/">accio.gencat.cat</a><a class="url" href="https://www.ivace.es/">ivace.es</a><a class="url" href="https://www.spri.eus/">spri.eus</a></div>
+  </div>
+
+  <h3>Enlaces para presentar las patentes</h3>
+  <div class="links">
+    <div class="card"><b>OEPM: solicitud española y PCT</b><a class="url" href="https://sede.oepm.gob.es/">sede.oepm.gob.es</a></div>
+    <div class="card"><b>OMPI: ePCT</b><a class="url" href="https://pct.wipo.int/">pct.wipo.int</a></div>
+    <div class="card"><b>EPO: servicios en línea (MyEPO)</b><a class="url" href="https://www.epo.org/en/applying/online-services">epo.org/en/applying/online-services</a></div>
+    <div class="card"><b>USPTO: Patent Center</b><a class="url" href="https://patentcenter.uspto.gov/">patentcenter.uspto.gov</a></div>
+    <div class="card"><b>IPONZ: patentes</b><a class="url" href="https://www.iponz.govt.nz/get-ip/patents/">iponz.govt.nz/get-ip/patents/</a></div>
+  </div>
+</section>
+
+<section id="nz">
+  <h2>Nueva Zelanda: ¿hay que ser residente?</h2>
+  <ul class="clean">
+    <li><b>No.</b> Cualquier persona o empresa de cualquier país puede pedir una patente neozelandesa.</li>
+    <li>Sí es obligatorio tener una <b>dirección para notificaciones en Nueva Zelanda o Australia</b> (Reglamento de Patentes de 2014, reg. 34). En la práctica es la de un agente de patentes de allí.</li>
+    <li>Solo los residentes o nacionales de Nueva Zelanda pueden usar IPONZ como oficina receptora de una PCT. Para usted, Nueva Zelanda es un destino de la PCT (mes 31), con una tasa de 250 NZ$ más el examen (750 NZ$).</li>
+    <li>El examen debe pedirse dentro de los 5 años. Tras el primer informe hay 12 meses para obtener la aceptación. Después se abren 3 meses de oposición.</li>
+  </ul>
+</section>
+
+<footer>
+  <b>Fuentes consultadas (septiembre 2026)</b>
+  <ol>
+    <li>OEPM, tasas de invenciones: https://www.oepm.es/es/tasas-y-precios-publicos/tasas-de-invenciones/</li>
+    <li>OEPM, convocatoria de subvenciones 2026: https://www.oepm.es/export/sites/portal/comun/documentos_relacionados/Ayudas/2026/Convocatoria-subvenciones-OEPM-2026.pdf</li>
+    <li>Cámara de Madrid, requisitos de las ayudas OEPM 2026: https://serviciosempresariales.camaramadrid.es/nueva-convocatoria-ayudas-oepm-innovacion-nacional-e-internacional-2026/</li>
+    <li>ABG IP, tasas OEPM: https://abg-ip.com/es/tasas-patentes-oepm/</li>
+    <li>USPTO, fee schedule: https://www.uspto.gov/learning-and-resources/fees-and-payment/uspto-fee-schedule</li>
+    <li>IPONZ, patent fees y examination process: https://www.iponz.govt.nz/get-ip/patents/fees/</li>
+    <li>IPONZ, reg. 34 y 38–44 (dirección para notificaciones y agentes): https://www.iponz.govt.nz/get-ip/patents/examination-manual/current/regulations-38-44-agent-changes/</li>
+    <li>EPO, subida de tasas del 1 de abril de 2026 (Marks &amp; Clerk): https://www.marks-clerk.com/insights/latest-insights/102mimh-epo-official-fee-adjustments-effective-1-april-2026/</li>
+    <li>Reducción de microentidad en la EPO (D Young &amp; Co): https://www.dyoung.com/en/knowledgebank/articles/patent-support-micro-entities-epo-reduces-official-fees</li>
+    <li>EUIPO, Fondo para pymes 2026: https://www.euipo.europa.eu/en/sme-corner/sme-fund/2026</li>
+    <li>Estados de la patente unitaria (Maucher Jenkins): https://www.maucherjenkins.com/en/news-and-events/upc/unitary-patent-participating-states/</li>
+    <li>OMPI, tasas del PCT: https://www.wipo.int/pct/es/fees/</li>
+  </ol>
+  <p>Importes aproximados y sujetos a cambio. Los honorarios son rangos de mercado orientativos. Antes de presentar o de presupuestar, confirme tasas y requisitos en las fuentes oficiales o con un agente de la propiedad industrial.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var M = 60;
+  var C = {es:'var(--es)',pct:'var(--pct)',ep:'var(--ep)',us:'var(--us)',nz:'var(--nz)',aid:'var(--aid)'};
+  var rows = [
+    {g:'España (OEPM)'},
+    {c:'es',l:'Solicitud española',m:0,todo:'Presentar en la OEPM (español o inglés). Pedir antes el bono de la EUIPO si es pyme.'},
+    {c:'es',l:'Informe del estado de la técnica (IET)',a:3,b:9,tm:9,approx:true,todo:'Recibir el IET y la opinión escrita. Decidir si internacionalizar.'},
+    {c:'es',l:'Petición de examen sustantivo',m:12,todo:'3 meses desde la publicación del IET para pedir el examen y pagar la tasa.',approx:true},
+    {c:'es',l:'Examen y concesión en España',a:12,b:36},
+    {g:'Prioridad y PCT'},
+    {c:'pct',l:'Fin del plazo de prioridad: PCT o EP directa',m:12,crit:true,todo:'Presentar la PCT vía OEPM (o la solicitud europea directa). Plazo improrrogable.'},
+    {c:'pct',l:'Búsqueda internacional y opinión escrita',a:14,b:18},
+    {c:'pct',l:'Publicación internacional',m:18},
+    {c:'pct',l:'Examen preliminar internacional (opcional)',a:22,b:28,todo:'Plazo para pedir el examen preliminar: mes 22 (o 3 meses desde el informe de búsqueda).',tm:22},
+    {g:'Unión Europea (EPO)'},
+    {c:'ep',l:'Entrada en la fase regional europea',m:31,crit:true,todo:'Entrar en la fase regional ante la EPO: tasas y designación. Declarar la condición de microentidad.'},
+    {c:'ep',l:'Examen en la EPO',a:31,b:54},
+    {c:'ep',l:'Efecto unitario y validación en ES y otros',a:54,b:57,todo:'Efecto unitario: 1 mes tras la concesión. Validación y traducción en España: 3 meses.',tm:54,approx:true},
+    {g:'Estados Unidos (USPTO)'},
+    {c:'us',l:'Fase nacional en EE. UU.',m:30,crit:true,todo:'Entrar en la fase nacional en EE. UU. (30 meses, sin prórroga). Declarar entidad pequeña o micro.'},
+    {c:'us',l:'Examen en la USPTO',a:30,b:58},
+    {g:'Nueva Zelanda (IPONZ)'},
+    {c:'nz',l:'Fase nacional en Nueva Zelanda',m:31,crit:true,todo:'Entrar en Nueva Zelanda con dirección para notificaciones en NZ o Australia.'},
+    {c:'nz',l:'Examen y aceptación',a:33,b:50},
+    {g:'Ayudas'},
+    {c:'aid',l:'Bono EUIPO (pedir antes de pagar)',m:0,todo:'Solicitar el bono de patentes de la EUIPO antes de pagar las tasas (solo pymes).'},
+    {c:'aid',l:'Convocatorias OEPM (cada primavera)',aid:true}
+  ];
+  var MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function add(d,m){var r=new Date(d.getTime());var day=r.getDate();r.setDate(1);r.setMonth(r.getMonth()+m);var last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(day,last));return r;}
+  function fmt(d){return d.getDate()+' '+MES[d.getMonth()]+' '+d.getFullYear();}
+  function fmtM(d){return MES[d.getMonth()]+' '+String(d.getFullYear()).slice(2);}
+  function pct(m){return (m/M*100)+'%';}
+  function start(){var v=document.getElementById('start').value;var d=v?new Date(v+'T12:00:00'):new Date('2026-11-02T12:00:00');return isNaN(d)?new Date('2026-11-02T12:00:00'):d;}
+  function el(t,cls,txt){var e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+  function render(){
+    var s=start(), g=document.getElementById('gantt'); g.innerHTML='';
+    var ax=el('div','g-row g-axis');ax.appendChild(el('div','g-label','Mes · fecha'));var at=el('div','g-track');
+    for(var m=0;m<=M;m+=6){var t=el('div','tick');t.style.left=pct(m);var sp=el('span');sp.textContent='M'+m+'\n';sp.appendChild(document.createElement('br'));sp.appendChild(document.createTextNode(fmtM(add(s,m))));sp.firstChild.textContent='M'+m;if(m===M){sp.hidden=true;}t.appendChild(sp);at.appendChild(t);}
+    ax.appendChild(at);g.appendChild(ax);
+    rows.forEach(function(r){
+      if(r.g){var gr=el('div','g-row group');gr.appendChild(el('div','g-label',r.g));gr.appendChild(el('div','g-track'));g.appendChild(gr);return;}
+      var row=el('div','g-row');row.setAttribute('role','row');row.appendChild(el('div','g-label',r.l));
+      var tr=el('div','g-track');
+      for(var m=6;m<M;m+=6){var gl=el('div','gridline');gl.style.left=pct(m);tr.appendChild(gl);}
+      if(r.aid){
+        for(var k=0;k<=M;k++){var d=add(s,k);if(d.getMonth()===2){var b=el('div','bar aid');b.style.left=pct(k);b.style.width=pct(Math.min(2,M-k));b.title='Convocatoria OEPM '+d.getFullYear()+' (aprox. mar–may)';tr.appendChild(b);}}
+      } else if(r.m!=null){
+        var dm=el('div','dia'+(r.crit?' crit':''));dm.style.left=pct(r.m);dm.style.background=C[r.c];tr.appendChild(dm);
+        var w=el('div','g-when',(r.approx?'≈ ':'')+'M'+r.m+' · '+fmt(add(s,r.m)));
+        if(r.m>44){w.style.right=(100-r.m/M*100+2)+'%';}else{w.style.left='calc('+pct(r.m)+' + 14px)';}
+        tr.appendChild(w);
+      } else {
+        var bb=el('div','bar');bb.style.left=pct(r.a);bb.style.width=pct(r.b-r.a);bb.style.background=C[r.c];tr.appendChild(bb);
+        var w2=el('div','g-when','M'+r.a+'–'+r.b);
+        if(r.b>50){w2.style.right=(100-r.a/M*100+1.5)+'%';}else{w2.style.left='calc('+pct(r.b)+' + 8px)';}
+        tr.appendChild(w2);
+      }
+      row.appendChild(tr);g.appendChild(row);
+    });
+    var tb=document.querySelector('#deadlines tbody');tb.innerHTML='';
+    rows.filter(function(r){return r.todo;}).map(function(r){return {m:(r.m!=null?r.m:r.tm),r:r};}).sort(function(x,y){return x.m-y.m;}).forEach(function(o){
+      var tr=el('tr');var th=el('td','num',(o.r.approx?'≈ ':'')+'M'+o.m);tr.appendChild(th);
+      tr.appendChild(el('td','num',fmt(add(s,o.m))));
+      var h=el('td');var sw=el('span','tag',o.r.l);sw.style.color=C[o.r.c];h.appendChild(sw);if(o.r.crit){h.appendChild(document.createTextNode(' '));var cr=el('span','tag','crítico');cr.style.color='var(--crit)';h.appendChild(cr);}tr.appendChild(h);
+      tr.appendChild(el('td',null,o.r.todo));tb.appendChild(tr);
+    });
+    var sp=[];for(var k=0;k<=M;k++){var d=add(s,k);if(d.getMonth()===2)sp.push(d.getFullYear());}
+    var tr2=el('tr');tr2.appendChild(el('td','num','cada año'));tr2.appendChild(el('td','num','mar–may '+sp.join(', ')));var h2=el('td');var t2=el('span','tag','Convocatorias OEPM');t2.style.color=C.aid;h2.appendChild(t2);tr2.appendChild(h2);tr2.appendChild(el('td',null,'Pedir la subvención de la OEPM por las tasas pagadas en el periodo que fije cada convocatoria. Guardar todos los justificantes de pago.'));tb.appendChild(tr2);
+  }
+
+  /* ---------- Costes ---------- */
+  // [tasasLo, tasasHi, honLo, honHi]; tasas en € según entidad
+  function items(e){
+    var small=(e!=='big'), micro=(e==='pf'||e==='micro');
+    var usF = e==='pf'?[345,520]:(e==='big'?[1720,2100]:[690,860]);
+    return [
+      {id:'r-es',n:'España: solicitud, IET y examen',f:small?[510,560]:[1020,1100],p:[2000,5000],aidOEPM:small?.9:0,note:small?'Con la reducción de emprendedor (50 % + 15 % en línea).':''},
+      {id:'r-pct',n:'PCT: tasa internacional, búsqueda OEPM y transmisión',f:[3300,3800],p:[1500,3500],aidOEPM:small?.9:.8},
+      {id:'r-ep',n:'EPO: presentación, búsqueda, examen, designación y concesión',f:micro?[3600,3900]:[5100,5500],p:[5000,10000],aidOEPM:small?.9:.8},
+      {id:'r-up',n:'Efecto unitario y validación en España (traducciones)',f:[100,300],p:[2500,5000],aidOEPM:small?.9:.8},
+      {id:'r-rest',n:'Resto de la UE: PL, HR, IE, CZ, SK, HU, GR, CY',f:[800,2000],p:[6000,15000],aidOEPM:small?.9:.8},
+      {id:'r-us',n:'EE. UU.: fase nacional y examen',f:usF,p:[7000,13000],aidOEPM:small?.9:.8},
+      {id:'r-nz',n:'Nueva Zelanda: fase nacional y examen',f:[510,560],p:[2000,4000],aidOEPM:small?.9:.8}
+    ];
+  }
+  function eur(n){return Math.round(n/10)*10;}
+  function fr(a,b){return eur(a).toLocaleString('es-ES')+'–'+eur(b).toLocaleString('es-ES')+' €';}
+  function frk(a,b){return (Math.round(a/100)/10).toLocaleString('es-ES')+'–'+(Math.round(b/100)/10).toLocaleString('es-ES')+' k€';}
+  function calc(){
+    var e=document.getElementById('entity').value, useAid=document.getElementById('r-aid').checked;
+    var list=items(e), F=[0,0],P=[0,0],A=[0,0], tb=document.querySelector('#cost-table tbody'); tb.innerHTML='';
+    list.forEach(function(it){
+      if(!document.getElementById(it.id).checked)return;
+      var rate=useAid?it.aidOEPM:0;
+      F[0]+=it.f[0];F[1]+=it.f[1];P[0]+=it.p[0];P[1]+=it.p[1];A[0]+=it.f[0]*rate;A[1]+=it.f[1]*rate;
+      var tr=el('tr');tr.appendChild(el('th',null,it.n));tr.appendChild(el('td','num',fr(it.f[0],it.f[1])));tr.appendChild(el('td','num',fr(it.p[0],it.p[1])));tr.appendChild(el('td','num',rate?('−'+Math.round(rate*100)+' %'):'—'));tb.appendChild(tr);
+    });
+    var tot=el('tr','total');tot.appendChild(el('th',null,'Total'));tot.appendChild(el('td','num',fr(F[0],F[1])));tot.appendChild(el('td','num',fr(P[0],P[1])));tot.appendChild(el('td','num',A[1]?('−'+fr(A[0],A[1])):'—'));tb.appendChild(tot);
+    document.getElementById('s-fees').textContent=frk(F[0],F[1]);
+    document.getElementById('s-pro').textContent=frk(P[0],P[1]);
+    document.getElementById('s-aid').textContent=A[1]?('−'+frk(A[0],A[1])):'0 €';
+    document.getElementById('s-net').textContent=frk(F[0]+P[0]-A[0],F[1]+P[1]-A[1]);
+    var n=[];
+    if(e==='big')n.push('Gran empresa: sin reducciones de tasas y sin programa nacional de la OEPM. El programa exterior cubre el 80 %.');
+    if(e==='pyme')n.push('La pyme no microempresa no tiene la reducción del 30 % de la EPO, pero puede pedir el bono de la EUIPO (hasta 1.000 € + 2.500 €) si no usa la ayuda OEPM para las mismas tasas.');
+    if(e==='pf')n.push('Persona física: microentidad en EE. UU. si cumple el límite de ingresos y tiene 4 o menos solicitudes previas; si no, entidad pequeña.');
+    if(e==='micro')n.push('La microempresa puede pedir el bono de la EUIPO como alternativa en las tasas que no cubra la OEPM.');
+    n.push('Sin anualidades posteriores a la concesión. Honorarios según la complejidad de la invención y el número de reivindicaciones.');
+    document.getElementById('calc-notes').textContent=n.join(' ');
+  }
+  function scen(){
+    var L=items('pf'), by={}; L.forEach(function(i){by[i.id]=i;});
+    var S=[
+      ['Solo España',['r-es']],
+      ['España + UE (EPO directa, unitaria + España)',['r-es','r-ep','r-up']],
+      ['España + PCT + UE + EE. UU.',['r-es','r-pct','r-ep','r-up','r-us']],
+      ['España + PCT + UE + EE. UU. + NZ',['r-es','r-pct','r-ep','r-up','r-us','r-nz']],
+      ['Los 27 de la UE + EE. UU. + NZ (vía PCT)',['r-es','r-pct','r-ep','r-up','r-rest','r-us','r-nz']]
+    ];
+    var tb=document.getElementById('scen');tb.innerHTML='';
+    S.forEach(function(s){var F=[0,0],P=[0,0],A=[0,0];s[1].forEach(function(id){var i=by[id];F[0]+=i.f[0];F[1]+=i.f[1];P[0]+=i.p[0];P[1]+=i.p[1];A[0]+=i.f[0]*i.aidOEPM;A[1]+=i.f[1]*i.aidOEPM;});
+      var tr=el('tr');tr.appendChild(el('th',null,s[0]));tr.appendChild(el('td','num',frk(F[0],F[1])));tr.appendChild(el('td','num',frk(P[0],P[1])));tr.appendChild(el('td','num',frk(F[0]+P[0]-A[0],F[1]+P[1]-A[1])));tb.appendChild(tr);});
+  }
+  document.getElementById('start').addEventListener('change',render);
+  document.getElementById('entity').addEventListener('change',calc);
+  document.getElementById('routes').addEventListener('change',calc);
+  render();calc();scen();
+})();
+</script>
